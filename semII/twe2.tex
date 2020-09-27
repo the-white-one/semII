@@ -1,0 +1,110 @@
+\documentclass[12pt,titlepage]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,lmargin={2.5cm},rmargin={2.5cm},tmargin={2.5cm},bmargin={2.5cm}]{geometry}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[headsepline,footsepline, singlespacing=true]{scrlayer-scrpage}
+\usepackage{mwe}
+\usepackage{acronym}
+\usepackage{blindtext}
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}
+\usepackage{setspace}
+
+\usepackage[
+  backend=biber,
+  style=ext-authoryear,
+  maxcitenames=2, maxbibnames=999,
+  giveninits=true,
+  uniquename=init, uniquelist=false,
+  articlein=false, innamebeforetitle=true,
+  punctfont=true, dashed=false,
+]{biblatex}
+
+\input{settings}
+
+\begin{document}
+\changefont{\fontForTheSeminar}{m}{n}
+
+\input{titlepage}
+
+%einige letzte Befehle für das Layout
+\setlength{\parskip}{9pt} %Abstand nach Absatz
+\newpage %neue Seite nach dem DEckblatt
+\clearpairofpagestyles %alle Layouteinstellungen vom Deckblatt löschen
+\changefont{\fontForTheSeminar}{m}{n} %Schrift aktualisieren
+\ohead{\headmark} %Kopfzeile
+\ofoot{\pagemark} %Fußzeile
+\automark{section} %aktuelle Section wird in der Kopfzeile angezeigt
+\renewcommand*{\sectionmarkformat}{} %Darstellung Section in der Kopfzeile angepasst
+\setcounter{page}{2} %Seitenzähler auf 2 Stellen
+
+
+%Inhaltsverzeichnis
+\tableofcontents
+
+
+%Tabellen- und Abbildungsverzeichnis
+%\listoftables
+%\listoffigures
+%Anhangsverzeichnis TODO
+
+%Abkürzungsverzeichnis - Abkürzungen eintragen
+\section*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+\begin{acronym}[SCCharts]
+\acro{CAU}{Christian-Albrechts-Universität zu Kiel}
+\acro{DSL}{Domain Specific Language}
+\acro{EMF}{Eclipse Modelling Frammework}
+\acro{IUR}{Initialize-Update-Read Protocol}
+\acro{KICO}{KIELER Compiler}
+\acro{KIELER}{Kiel Integrated Enviroment for Layout Eclipse RichClient}
+\acro{PDG}{Programm Dependency Graph}
+\acro{PRETSY}{Precision-Timed Synchronus Reactive Processing}
+\acro{SCPDG}{Sequential Constructive Programm Dependency Graph}
+\acro{SCCharts}{Sequentially Constructive Charts}
+\acro{SCG}{Sequentially Constructive Graph}
+\acro{WCET}{Worst-Case Execution Time}
+\acro{WCRT}{Worst-Case Reaction Time}
+\end{acronym}
+\newpage
+
+\section{Einleitung}
+\blindtext
+
+\section{Literatur}
+\blindtext
+
+\subsection{John B. Goodenough}
+\blindtext
+
+\subsubsection{Nobelpreis}
+\Blindtext
+
+\subsubsection{Li-Ion Batterie}
+\Blindtext
+
+\subsection{Alfred Nobel}
+\blindtext
+
+\section{Genial}
+Das \ac{EMF} wird genutzt um Modelle einfach und automatisiert zu erstellen \parencite[348\psq]{karg1969einfluss}.
+Nach \textcite[347]{helmert2003n} spielt \ac{EMF} hierbei eine wichtige Rolle. \ac{KIELER} wird an der \ac{CAU} entwickelt \parencite[34\psqq]{weggler2050leguminosen} wie \textcite[200]{karg1965larvalsystematische} beschrieben hat.
+\ac{IUR} ist ein wichtiger bestandteil von \ac{SCCharts} \parencites[235]{karg1985zwei}[88]{bellebaum2008rohricht}.
+\subsection{Wissenwertes}
+\blindtext
+
+\subsection{Details}
+\blindtext
+
+%Literaturverzeichnis
+\begin{singlespace} %einfacher Zeilenabstand im Literaturverzeichnis
+\begin{flushleft} %linksbündig
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\printbibliography[title=Literaturverzeichnis]
+\end{flushleft}
+\end{singlespace}
+
+%Anhang
+\end{document}
