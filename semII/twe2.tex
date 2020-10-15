@@ -1,4 +1,4 @@
-\documentclass[12pt,titlepage]{scrartcl}
+\documentclass[12pt,titlepage,liststotoc,bibtotoc]{scrartcl}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper,lmargin={2.5cm},rmargin={2.5cm},tmargin={2.5cm},bmargin={2.5cm}]{geometry}
@@ -6,13 +6,15 @@
 \usepackage[T1]{fontenc}
 \usepackage[headsepline,footsepline, singlespacing=true]{scrlayer-scrpage}
 \usepackage{mwe}
-\usepackage{acronym}
+\usepackage[version=3]{acro}
 \usepackage{blindtext}
 \usepackage[hidelinks]{hyperref}
 \usepackage{csquotes}
 \usepackage{setspace}
 \usepackage[ngerman]{cleveref}
 \usepackage[ngerman]{todonotes}
+\usepackage{graphicx}
+%\usepackage{supertabular}
 
 \usepackage[
   backend=biber,
@@ -24,7 +26,48 @@
   punctfont=true, dashed=false,
 ]{biblatex}
 
+\setkomafont{disposition}{\normalcolor\bfseries}
+\setkomafont{caption}{\bfseries}
+\setkomafont{captionlabel}{\bfseries}
+\setcaptionalignment{l}
+
+
 \input{settings}
+
+
+%Abkürzungen definieren!
+\DeclareAcronym{AGGF}{
+	short = AGGF ,
+	long = Arbeitsgemeinschaft Grünland und Feldfutterbau 
+}
+
+\DeclareAcronym{EU}{
+	short = EU ,
+	long = europäische Union 
+}
+
+\DeclareAcronym{NEL}{
+	short = NEL ,
+	long = Netto-Energie-Laktation 
+}
+
+\DeclareAcronym{TM}{
+	short = TM ,
+	long = Trockenmasse 
+}
+
+\DeclareAcronym{XP}{
+	short = XP ,
+	long = Rohprotein 
+}
+
+
+\acsetup{
+  make-links ,
+%  list / template = tabular 
+%  index ,
+  trailing/activate = {dash} 
+}
 
 \begin{document}
 \changefont{\fontForTheSeminar}{m}{n}
@@ -45,25 +88,39 @@
 
 %Inhaltsverzeichnis
 \tableofcontents
+%\addcontentsline{toc}{section}{Inhaltsverzeichnis}
 
 
 %Tabellen- und Abbildungsverzeichnis
 %\listoftables
-%\listoffigures
+\listoffigures
 %Anhangsverzeichnis 
-\todo{Abbildungs, Tabellen und Anhangsverzeichnis erstellen!}
+\todo{Tabellen und Anhangsverzeichnis erstellen! Formatierung vorgaben einsehen!}
 
 %Abkürzungsverzeichnis - Abkürzungen eintragen
-\section*{Abkürzungsverzeichnis}
+%\section*{Abkürzungsverzeichnis}
+
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
-\begin{acronym}[AGGF] %die längste Abkürzung in die eckigen Klammern schreiben für tabellarische Darstellung
-	\acro{AGGF}{Arbeitsgemeinschaft Grünland und Feldfutterbau}
-	\acro{EU}{Europäische Union}
-	\acro{NEL}{Netto-Energie-Laktation}
-	\acro{TM}{Trockenmasse}
-	\acro{XP}{Rohprotein}
-\end{acronym}
+\printacronyms[
+ heading = section* ,
+ name = Abkürzungsverzeichnis ,
+ display = all 
+% template = tabular ,
+% template = table
+]
+%\begin{acronym}[AGGF] %die längste Abkürzung in die eckigen Klammern schreiben für tabellarische Darstellung
+%	\acro{AGGF}{Arbeitsgemeinschaft Grünland und Feldfutterbau}
+%	\acro{EU}{Europäische Union}
+%	\acro{NEL}{Netto-Energie-Laktation}
+%	\acro{TM}{Trockenmasse}
+%	\acro{XP}{Rohprotein}
+%\end{acronym}
+
+
+
 \newpage
+
+\acresetall
 
 \input{einleitung}
 
@@ -73,10 +130,11 @@
 
 \input{zusammenfassung}
 
+
+\acresetall
 %Literaturverzeichnis
 \begin{singlespace} %einfacher Zeilenabstand im Literaturverzeichnis
 \begin{flushleft} %linksbündig
-\addcontentsline{toc}{section}{Literaturverzeichnis}
 \printbibliography[title=Literaturverzeichnis]
 \end{flushleft}
 \end{singlespace}
