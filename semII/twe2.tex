@@ -6,7 +6,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[headsepline,footsepline, singlespacing=true]{scrlayer-scrpage}
 \usepackage{mwe}
-\usepackage[version=3]{acro}
+\usepackage{acro}
 \usepackage{blindtext}
 \usepackage[hidelinks]{hyperref}
 \usepackage{csquotes}
@@ -26,8 +26,8 @@
   punctfont=true, dashed=false,
 ]{biblatex}
 
-\setkomafont{disposition}{\normalcolor\bfseries}
-\setkomafont{caption}{\bfseries}
+%\setkomafont{disposition}{\normalcolor\bfseries} %Überschriften afu standardschrift stellen, hässlich bei einer Schrift mit Serifen
+\setkomafont{caption}{\bfseries} %captio Abbilund und Tabbellen beschriftung!
 \setkomafont{captionlabel}{\bfseries}
 \setcaptionalignment{l}
 
@@ -41,11 +41,6 @@
 	long = Arbeitsgemeinschaft Grünland und Feldfutterbau 
 }
 
-\DeclareAcronym{EU}{
-	short = EU ,
-	long = europäische Union 
-}
-
 \DeclareAcronym{NEL}{
 	short = NEL ,
 	long = Netto-Energie-Laktation 
@@ -54,6 +49,11 @@
 \DeclareAcronym{TM}{
 	short = TM ,
 	long = Trockenmasse 
+}
+
+\DeclareAcronym{EU}{
+	short = EU ,
+	long = Europäische Union,
 }
 
 \DeclareAcronym{XP}{
@@ -65,7 +65,7 @@
 \acsetup{
   make-links ,
 %  list / template = tabular 
-%  index ,
+  index ,
   trailing/activate = {dash} 
 }
 
@@ -75,16 +75,15 @@
 \input{titlepage}
 
 %einige letzte Befehle für das Layout
-\setlength{\parskip}{9pt} %Abstand nach Absatz
 \newpage %neue Seite nach dem DEckblatt
 \clearpairofpagestyles %alle Layouteinstellungen vom Deckblatt löschen
-\changefont{\fontForTheSeminar}{m}{n} %Schrift aktualisieren
 \ohead{\headmark} %Kopfzeile
 \ofoot{\pagemark} %Fußzeile
 \automark{section} %aktuelle Section wird in der Kopfzeile angezeigt
 \renewcommand*{\sectionmarkformat}{} %Darstellung Section in der Kopfzeile angepasst
 \setcounter{page}{2} %Seitenzähler auf 2 Stellen
-
+\setlength{\parskip}{9pt} %Abstand nach Absatz
+\changefont{\fontForTheSeminar}{m}{n} %Schrift aktualisieren
 
 %Inhaltsverzeichnis
 \tableofcontents
@@ -104,7 +103,8 @@
 \printacronyms[
  heading = section* ,
  name = Abkürzungsverzeichnis ,
- display = all 
+ display = used,
+ sort 
 % template = tabular ,
 % template = table
 ]
@@ -120,7 +120,6 @@
 
 \newpage
 
-\acresetall
 
 \input{einleitung}
 
@@ -131,7 +130,7 @@
 \input{zusammenfassung}
 
 
-\acresetall
+%\acresetall
 %Literaturverzeichnis
 \begin{singlespace} %einfacher Zeilenabstand im Literaturverzeichnis
 \begin{flushleft} %linksbündig
