@@ -14,6 +14,7 @@
 \usepackage[ngerman]{cleveref}
 \usepackage[ngerman]{todonotes}
 \usepackage{graphicx}
+\usepackage{lmodern}
 %\usepackage{supertabular}
 
 \usepackage[
@@ -37,6 +38,7 @@
 }
 
 \newcommand{\fontForTheSeminar}{ppl}
+\newcommand{\fontForHeadlines}{lmss}
 \renewcommand*{\mkbibnamefamily}{\expandafter\MakeUppercase\expandafter}
 \AtBeginBibliography{%
   \renewcommand*{\mkbibnamefamily}[1]{#1}}
@@ -71,14 +73,15 @@
 \DeclareDelimFormat[bib]{nametitledelim}{\addcolon\space}
 
 \renewcommand*{\volnumdelim}{\addcomma\space}
+%\renewcommand*{\issnumdelim}{\addcolo\space}
 
 %\renewcommand*{\yearpagesdelim}{\addcolon\space}
 
 \DeclareFieldFormat{pages}{#1}
 
-\renewcommand*{\bibpagespunct}{\addcolon\ifentrytype{article}{}{\space}}
+\renewcommand*{\bibpagespunct}{\addcolon\ifentrytype{article}{\space}{\space}}
 
-\DeclareDelimFormat{postnotedelim}{\addcolon~}
+\DeclareDelimFormat{postnotedelim}{\addcolon\space}
 \DeclareFieldFormat{postnote}{\mknormrange{#1}}
 \setlength\bibitemsep{6pt}
 
@@ -117,9 +120,11 @@
 }
 
 \DeclareAcronym{HBLFA}{
-	short = HBLFA Raum\-berg-Gum\-pen\-stein ,
-	long = Höhere Bundeslehr- und Forschungsanstalt für Landwirtschaft Raum\-berg-Gum\-pen\-stein
+	short = HBLFA ,
+	long = Höhere Bundeslehr- und Forschungsanstalt für Landwirtschaft 
 }
+
+\newcommand{\HBLFA}{\ac{HBLFA} Raum\-berg-Gum\-pen\-stein \space}
 
 \DeclareAcronym{NEL}{
 	short = NEL ,
@@ -152,7 +157,11 @@
 
 
 \begin{document}
-\changefont{\fontForTheSeminar}{m}{n}
+\changefont{\fontForHeadlines}{m}{n}
+%\setkomafont{section}{15}
+%\setkomafont{subsection}{14}
+%\setkomafont{subsubsection}{13}
+
 
 \input{titlepage}
 
