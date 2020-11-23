@@ -1,4 +1,6 @@
-\documentclass[12pt,titlepage,liststotoc,bibtotoc]{scrartcl}
+\documentclass[12pt,titlepage,liststotoc,bibtotoc
+%	,draft
+]{scrartcl}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper,lmargin={2.5cm},rmargin={2.5cm},tmargin={2.5cm},bmargin={2.5cm}]{geometry}
@@ -16,6 +18,7 @@
 \usepackage{graphicx}
 \usepackage{lmodern}
 \usepackage{tocloft}
+\usepackage{microtype}
 %\usepackage{supertabular}
 
 \usepackage[
@@ -123,6 +126,11 @@
 	long = Arbeitsgemeinschaft Grünland und Feldfutterbau 
 }
 
+\DeclareAcronym{DUV}{
+	short = DüV ,
+	long = Düngeverordnung
+}
+
 \DeclareAcronym{HBLFA}{
 	short = HBLFA ,
 	long = Höhere Bundeslehr- und Forschungsanstalt für Landwirtschaft 
@@ -132,7 +140,7 @@
 
 \DeclareAcronym{NEL}{
 	short = NEL ,
-	long = Netto-Energie-Laktation 
+	long = Net\-to-En\-er\-gie-Lak\-ta\-tion 
 }
 
 \DeclareAcronym{TM}{
@@ -188,6 +196,7 @@
 
 %Tabellen- und Abbildungsverzeichnis
 %\listoftables
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
 \listoffigures
 %Anhangsverzeichnis 
 %\todo{Tabellen und Anhangsverzeichnis erstellen! Formatierung vorgaben einsehen!}
