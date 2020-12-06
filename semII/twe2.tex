@@ -19,6 +19,8 @@
 \usepackage{lmodern}
 \usepackage{tocloft}
 \usepackage{microtype}
+\usepackage{longtable}
+\usepackage{tabu}
 %\usepackage{supertabular}
 
 \usepackage[
@@ -159,6 +161,8 @@
 }
 
 
+
+
 \acsetup{
   make-links ,
 %  list / template = tabular 
@@ -169,6 +173,9 @@
 
 
 \begin{document}
+
+%\renewcommand*{\acroiftrailing{dash}{-}{\space}}
+
 \changefont{\fontForHeadlines}{m}{n}
 %\setkomafont{section}{15}
 %\setkomafont{subsection}{14}
@@ -209,9 +216,9 @@
  heading = section* ,
  name = Abkürzungsverzeichnis ,
  display = used,
- sort 
+% sort 
 % template = tabular ,
-% template = table
+ template = longtabu
 ]
 %\begin{acronym}[AGGF] %die längste Abkürzung in die eckigen Klammern schreiben für tabellarische Darstellung
 %	\acro{AGGF}{Arbeitsgemeinschaft Grünland und Feldfutterbau}
